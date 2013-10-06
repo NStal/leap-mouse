@@ -1,0 +1,8 @@
+#!/bin/bash
+[ `id -u` -ne  0 ] && echo "need to run as root" && exit 1
+pgrep leapd && echo "leapd is running" && killall leapd -9
+echo "start leapd"
+leapd &
+echo "start leapmouse"
+coffee main.coffee
+
